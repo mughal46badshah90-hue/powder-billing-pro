@@ -1,0 +1,233 @@
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/PlusJakartaSans.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('/assets/fonts/BricolageGrotesque.woff2') format('woff2');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/assets/fonts/GeistMono.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* ── Powder Billing Pro — Industrial Dark Orange Palette ── */
+    --background: 0.11 0.008 30;
+    --foreground: 0.95 0.012 50;
+
+    --card: 0.15 0.012 30;
+    --card-foreground: 0.95 0.012 50;
+
+    --popover: 0.15 0.012 30;
+    --popover-foreground: 0.95 0.012 50;
+
+    /* Vibrant orange primary */
+    --primary: 0.68 0.19 47;
+    --primary-foreground: 0.08 0.005 30;
+
+    /* Warm amber secondary */
+    --secondary: 0.20 0.018 30;
+    --secondary-foreground: 0.95 0.012 50;
+
+    --muted: 0.18 0.015 30;
+    --muted-foreground: 0.58 0.04 40;
+
+    /* Accent: warm amber */
+    --accent: 0.22 0.018 35;
+    --accent-foreground: 0.95 0.012 50;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0.005 0;
+
+    --border: 0.24 0.022 35;
+    --input: 0.16 0.014 30;
+    --ring: 0.68 0.19 47;
+
+    --chart-1: 0.68 0.19 47;
+    --chart-2: 0.62 0.18 55;
+    --chart-3: 0.55 0.16 45;
+    --chart-4: 0.72 0.20 60;
+    --chart-5: 0.48 0.14 35;
+
+    --sidebar: 0.13 0.01 30;
+    --sidebar-foreground: 0.95 0.012 50;
+    --sidebar-primary: 0.68 0.19 47;
+    --sidebar-primary-foreground: 0.08 0.005 30;
+    --sidebar-accent: 0.22 0.018 35;
+    --sidebar-accent-foreground: 0.95 0.012 50;
+    --sidebar-border: 0.24 0.022 35;
+    --sidebar-ring: 0.68 0.19 47;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'Geist Mono', monospace;
+  }
+}
+
+/* ── PBP Custom Styles ── */
+
+/* Orange glow effects */
+.text-glow-orange {
+  text-shadow:
+    0 0 10px oklch(0.68 0.19 47 / 0.9),
+    0 0 30px oklch(0.68 0.19 47 / 0.5);
+}
+
+/* Orange gradient text */
+.gradient-text-orange {
+  background: linear-gradient(135deg, oklch(0.78 0.20 55), oklch(0.68 0.19 47), oklch(0.60 0.18 38));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card glow */
+.shadow-glow-orange {
+  box-shadow:
+    0 0 20px oklch(0.68 0.19 47 / 0.25),
+    0 0 40px oklch(0.68 0.19 47 / 0.1),
+    inset 0 1px 0 oklch(0.68 0.19 47 / 0.1);
+}
+
+/* Orange button */
+.btn-orange {
+  background: linear-gradient(135deg, oklch(0.72 0.20 55), oklch(0.65 0.19 44));
+  transition: all 0.25s ease;
+  border: none;
+}
+
+.btn-orange:hover {
+  background: linear-gradient(135deg, oklch(0.76 0.21 55), oklch(0.70 0.20 44));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px oklch(0.68 0.19 47 / 0.4);
+}
+
+.btn-orange:active {
+  transform: translateY(0);
+}
+
+/* Input focus */
+.input-pbp {
+  background-color: oklch(0.16 0.014 30);
+  border: 1.5px solid oklch(0.24 0.022 35);
+  border-radius: 10px;
+  color: oklch(0.95 0.012 50);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-pbp:focus {
+  border-color: oklch(0.68 0.19 47);
+  box-shadow: 0 0 0 3px oklch(0.68 0.19 47 / 0.15);
+  outline: none;
+}
+
+.input-pbp::placeholder {
+  color: oklch(0.42 0.025 35);
+}
+
+/* WhatsApp green button */
+.btn-whatsapp {
+  background: #25D366;
+  transition: all 0.25s ease;
+}
+
+.btn-whatsapp:hover {
+  background: #20b858;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+}
+
+/* Dashboard bg */
+.dashboard-panel {
+  background: oklch(0.13 0.010 30);
+  border: 1px solid oklch(0.26 0.024 35);
+  border-radius: 12px;
+}
+
+/* Bill card */
+.bill-card {
+  background: oklch(0.14 0.012 30);
+  border: 1.5px solid oklch(0.68 0.19 47 / 0.35);
+  border-radius: 12px;
+  box-shadow: 0 0 24px oklch(0.68 0.19 47 / 0.12);
+}
+
+/* Invoice divider */
+.invoice-divider {
+  border: none;
+  border-top: 1px dashed oklch(0.30 0.025 35);
+}
+
+/* Animate in */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Dot pattern background */
+.pbp-bg {
+  background-color: oklch(0.11 0.008 30);
+  background-image: radial-gradient(oklch(0.22 0.016 35) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(0.11 0.008 30);
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.28 0.022 35);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.68 0.19 47 / 0.6);
+}
